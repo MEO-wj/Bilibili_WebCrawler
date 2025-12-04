@@ -34,7 +34,7 @@ const apiClient = axios.create({
 });
 
 // 设置静态文件目录，用于存放前端HTML、CSS、JavaScript等文件
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'docs')));
 // 设置node_modules为静态文件目录，以便前端访问第三方库
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
