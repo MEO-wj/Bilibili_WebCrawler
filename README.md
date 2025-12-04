@@ -12,7 +12,7 @@ project1/
 ├── package.json            # Node.js 项目配置
 ├── package-lock.json       # Node.js 依赖锁定文件
 ├── requirements.txt        # Python 项目依赖
-├── public/
+├── docs/
 │   ├── index.html          # 前端页面
 │   ├── script.js           # 前端 JavaScript 代码
 │   └── style.css           # 前端样式
