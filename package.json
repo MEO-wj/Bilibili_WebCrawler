@@ -16,5 +16,8 @@
   },
   "keywords": ["bilibili", "crawler", "video", "analysis", "chart"],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }

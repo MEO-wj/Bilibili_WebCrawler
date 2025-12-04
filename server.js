@@ -194,9 +194,16 @@ function handleApiError(error, res) {
 }
 
 /**
+ * catch-all路由，处理前端单页应用路由
+ */
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'docs', 'index.html'));
+});
+
+/**
  * 启动服务器
  */
-app.listen(PORT, () => {
-  console.log(`服务器运行在 http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`服务器运行在 http://0.0.0.0:${PORT}`);
   console.log(`请确保Python爬虫API已启动在 ${PYTHON_CRAWLER_API}`);
 });
