@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  # Node.js 前端服务
+  node-server:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - flask-api
+    environment:
+      - PYTHON_CRAWLER_API=http://flask-api:5000
+    command: node server.js
+
+  # Python Flask API 服务
+  flask-api:
+    build: .
+    ports:
+      - "5000:5000"
+    command: python crawler_api.py

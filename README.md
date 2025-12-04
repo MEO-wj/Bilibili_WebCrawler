@@ -39,35 +39,84 @@ project1/
 
 ## 安装与运行
 
-### 1. 安装依赖
+### 方法一：传统方式
 
-#### Python 依赖
+#### 1. 安装依赖
+
+##### Python 依赖
 ```bash
 pip install -r requirements.txt
 ```
 
-#### Node.js 依赖
+##### Node.js 依赖
 ```bash
 npm install
 ```
 
-### 2. 启动服务
+#### 2. 启动服务
 
-#### 启动爬虫 API 服务（Flask）
+##### 启动爬虫 API 服务（Flask）
 ```bash
 python crawler_api.py
 ```
 爬虫 API 服务将在 `http://localhost:5000` 启动。
 
-#### 启动前端服务（Node.js Express）
+##### 启动前端服务（Node.js Express）
 ```bash
 node server.js
 ```
 前端服务将在 `http://localhost:3000` 启动。
 
-### 3. 访问应用
+#### 3. 访问应用
 
 打开浏览器，访问 `http://localhost:3000`
+
+### 方法二：Docker 容器化部署
+
+#### 1. 安装 Docker 和 Docker Compose
+
+请参考 [Docker 官方文档](https://docs.docker.com/get-docker/) 安装 Docker 和 Docker Compose。
+
+#### 2. 启动服务
+
+```bash
+docker-compose up
+```
+
+两个服务将同时启动：
+- 爬虫 API 服务（Flask）：`http://localhost:5000`
+- 前端服务（Node.js Express）：`http://localhost:3000`
+
+#### 3. 访问应用
+
+打开浏览器，访问 `http://localhost:3000`
+
+#### 4. 停止服务
+
+```bash
+docker-compose down
+```
+
+### 方法三：在 Render 等云平台部署
+
+由于项目采用双服务器架构，建议使用 Docker 容器部署。
+
+#### 部署步骤：
+
+1. 确保项目已添加 Dockerfile 和 docker-compose.yml
+2. 将代码推送到 GitHub/GitLab 仓库
+3. 在 Render 上创建新的 Web Service
+4. 选择 "Docker" 作为部署类型
+5. 连接 GitHub/GitLab 仓库
+6. 配置环境变量（如果需要）
+7. 点击 "Create Web Service" 开始部署
+
+#### Render 环境变量配置：
+
+| 环境变量 | 说明 | 默认值 |
+|----------|------|--------|
+| PYTHON_CRAWLER_API | Python爬虫API地址 | http://localhost:5000 |
+| PORT | Node.js服务端口 | 3000 |
 
 ## API 接口说明
 

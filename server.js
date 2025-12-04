@@ -21,12 +21,12 @@ const app = express();
 // 设置服务器端口，优先使用环境变量PORT，否则使用3000
 const PORT = process.env.PORT || 3000;
 
-// Python爬虫API地址 - 与Flask服务保持一致
-const PYTHON_CRAWLER_API = 'http://localhost:5000/api/crawl';
+// Python爬虫API地址 - 优先使用环境变量，否则使用默认值
+const PYTHON_CRAWLER_API = process.env.PYTHON_CRAWLER_API || 'http://localhost:5000';
 
 // 配置Axios实例，设置超时和基础URL
 const apiClient = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: PYTHON_CRAWLER_API,
   timeout: 30000, // 设置30秒超时
   headers: {
     'Content-Type': 'application/json'
