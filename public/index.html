@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 网页编码设置为UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- 设置响应式布局，适应不同设备屏幕 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 网页标题 -->
+    <title>B站视频热度分析</title>
+    <!-- 引入Chart.js库，用于绘制图表 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- 引入自定义CSS样式文件 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 页面头部 -->
+        <header>
+            <h1>B站视频热度分析</h1>
+            <p>通过关键词检索B站视频并分析其热度趋势</p>
+        </header>
+
+        <!-- 搜索区域 -->
+        <section class="search-section">
+            <!-- 搜索表单 -->
+            <div class="search-form">
+                <!-- 关键词输入框 -->
+                <input type="text" id="keyword" placeholder="请输入搜索关键词" required>
+                <!-- 爬取页数输入框 -->
+                <input type="number" id="pages" value="1" min="1" max="100" placeholder="爬取页数">
+                <!-- 开始爬取按钮 -->
+                <button id="search-btn" onclick="startCrawling()">开始爬取</button>
+            </div>
+            <!-- 加载状态显示 -->
+            <div id="loading" class="loading" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p>正在爬取数据，请稍候...</p>
+                <div id="crawl-progress" class="crawl-progress">
+                    <span id="current-page">0</span>/<span id="total-pages">0</span> 页
+                </div>
+            </div>
+        </section>
+
+        <!-- 图表区域 -->
+        <section class="chart-section">
+            <h2>热度趋势图</h2>
+            <div class="chart-container">
+                <!-- Canvas元素，用于绘制热度趋势图 -->
+                <canvas id="heatChart"></canvas>
+            </div>
+        </section>
+
+        <!-- 结果展示区域 -->
+        <section class="results-section">
+            <h2>爬取结果</h2>
+            <!-- 结果摘要 -->
+            <div id="results-summary"></div>
+            <!-- 结果表格容器 -->
+            <div class="results-table-container">
+                <!-- 结果表格 -->
+                <table id="results-table">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>视频标题</th>
+                            <th>发布时间</th>
+                            <th>播放量</th>
+                            <th>点赞数</th>
+                            <th>投币数</th>
+                            <th>收藏数</th>
+                            <th>UP主</th>
+                            <th>粉丝数</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-body">
+                    </tbody>
+                </table>
+            </div>
+            <!-- 分页控件 -->
+            <div class="pagination" id="pagination">
+                <button id="prev-btn" onclick="changePage(-1)">上一页</button>
+                <span id="page-info">第 <span id="current-page-display">0</span> 页，共 <span id="total-pages-display">0</span> 页</span>
+                <button id="next-btn" onclick="changePage(1)">下一页</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- 引入自定义JavaScript文件 -->
+    <script src="script.js"></script>
+</body>
+</html>

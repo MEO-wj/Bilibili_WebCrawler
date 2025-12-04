@@ -1,0 +1,597 @@
+/* 全局样式 */
+/* 重置所有元素的默认边距和内边距，并使用border-box盒模型 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 页面主体样式 */
+body {
+    /* 设置字体族，优先使用系统中文字体 */
+    font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+    /* 设置浅灰色背景 */
+    background-color: #f5f7fa;
+    /* 设置文字颜色 */
+    color: #333;
+    /* 设置行高，提高可读性 */
+    line-height: 1.6;
+}
+
+/* 容器样式 */
+.container {
+    /* 最大宽度限制 */
+    max-width: 1200px;
+    /* 水平居中 */
+    margin: 0 auto;
+    /* 内边距 */
+    padding: 20px;
+}
+
+/* 头部样式 */
+header {
+    /* 文本居中 */
+    text-align: center;
+    /* 底部外边距 */
+    margin-bottom: 40px;
+    /* 内边距 */
+    padding: 30px 0;
+    /* 白色背景 */
+    background-color: #fff;
+    /* 圆角边框 */
+    border-radius: 10px;
+    /* 轻微阴影效果 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 标题样式 */
+header h1 {
+    /* 主色调文字 */
+    color: #00a1d6;
+    /* 字体大小 */
+    font-size: 2.5em;
+    /* 底部外边距 */
+    margin-bottom: 10px;
+}
+
+/* 副标题样式 */
+header p {
+    /* 次要文字颜色 */
+    color: #666;
+    /* 字体大小 */
+    font-size: 1.1em;
+}
+
+/* 搜索区域样式 */
+.search-section {
+    /* 底部外边距 */
+    margin-bottom: 40px;
+    /* 内边距 */
+    padding: 30px;
+    /* 白色背景 */
+    background-color: #fff;
+    /* 圆角边框 */
+    border-radius: 10px;
+    /* 轻微阴影效果 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 搜索表单样式 */
+.search-form {
+    /* 使用弹性布局 */
+    display: flex;
+    /* 元素间的间距 */
+    gap: 15px;
+    /* 允许换行 */
+    flex-wrap: wrap;
+    /* 水平居中对齐 */
+    justify-content: center;
+    /* 底部外边距 */
+    margin-bottom: 20px;
+}
+
+/* 关键词输入框样式 */
+.search-form input[type="text"] {
+    /* 弹性伸缩比例 */
+    flex: 1;
+    /* 最小宽度 */
+    min-width: 300px;
+    /* 内边距 */
+    padding: 12px 15px;
+    /* 边框样式 */
+    border: 2px solid #e0e0e0;
+    /* 圆角边框 */
+    border-radius: 5px;
+    /* 字体大小 */
+    font-size: 16px;
+    /* 边框颜色过渡效果 */
+    transition: border-color 0.3s;
+}
+
+/* 输入框获得焦点时的样式 */
+.search-form input[type="text"]:focus {
+    /* 移除默认轮廓 */
+    outline: none;
+    /* 边框颜色变为主题色 */
+    border-color: #00a1d6;
+}
+
+/* 页数输入框样式 */
+.search-form input[type="number"] {
+    /* 固定宽度 */
+    width: 120px;
+    /* 内边距 */
+    padding: 12px 15px;
+    /* 边框样式 */
+    border: 2px solid #e0e0e0;
+    /* 圆角边框 */
+    border-radius: 5px;
+    /* 字体大小 */
+    font-size: 16px;
+    /* 边框颜色过渡效果 */
+    transition: border-color 0.3s;
+}
+
+/* 页数输入框获得焦点时的样式 */
+.search-form input[type="number"]:focus {
+    /* 移除默认轮廓 */
+    outline: none;
+    /* 边框颜色变为主题色 */
+    border-color: #00a1d6;
+}
+
+/* 搜索按钮样式 */
+.search-form button {
+    /* 内边距 */
+    padding: 12px 30px;
+    /* 背景色 */
+    background-color: #00a1d6;
+    /* 文字颜色 */
+    color: #fff;
+    /* 移除边框 */
+    border: none;
+    /* 圆角边框 */
+    border-radius: 5px;
+    /* 字体大小 */
+    font-size: 16px;
+    /* 鼠标指针变为手型 */
+    cursor: pointer;
+    /* 背景色过渡效果 */
+    transition: background-color 0.3s;
+}
+
+/* 按钮悬停时的样式 */
+.search-form button:hover {
+    /* 背景色加深 */
+    background-color: #0086b3;
+}
+
+/* 按钮禁用时的样式 */
+.search-form button:disabled {
+    /* 灰色背景 */
+    background-color: #cccccc;
+    /* 鼠标指针变为禁止符号 */
+    cursor: not-allowed;
+}
+
+/* 加载状态样式 */
+.loading {
+    /* 使用弹性布局 */
+    display: flex;
+    /* 垂直排列元素 */
+    flex-direction: column;
+    /* 水平居中对齐 */
+    align-items: center;
+    /* 垂直居中对齐 */
+    justify-content: center;
+    /* 内边距 */
+    padding: 20px;
+}
+
+/* 加载动画样式 */
+.loading-spinner {
+    /* 宽高 */
+    width: 40px;
+    height: 40px;
+    /* 边框样式，创建圆环效果 */
+    border: 4px solid #f3f3f3;
+    /* 顶部边框使用主题色 */
+    border-top: 4px solid #00a1d6;
+    /* 圆形边框 */
+    border-radius: 50%;
+    /* 应用旋转动画 */
+    animation: spin 1s linear infinite;
+    /* 底部外边距 */
+    margin-bottom: 10px;
+}
+
+/* 旋转动画定义 */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 加载文本样式 */
+.loading p {
+    /* 文字颜色 */
+    color: #666;
+    /* 字体大小 */
+    font-size: 14px;
+}
+
+/* 图表区域样式 */
+.chart-section {
+    /* 底部外边距 */
+    margin-bottom: 40px;
+    /* 内边距 */
+    padding: 30px;
+    /* 白色背景 */
+    background-color: #fff;
+    /* 圆角边框 */
+    border-radius: 10px;
+    /* 轻微阴影效果 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 图表标题样式 */
+.chart-section h2 {
+    /* 底部外边距 */
+    margin-bottom: 20px;
+    /* 文字颜色 */
+    color: #333;
+    /* 字体大小 */
+    font-size: 1.8em;
+}
+
+/* 图表容器样式 */
+.chart-container {
+    /* 固定高度 */
+    height: 400px;
+    /* 相对定位 */
+    position: relative;
+}
+
+/* 结果区域样式 */
+.results-section {
+    /* 底部外边距 */
+    margin-bottom: 40px;
+    /* 内边距 */
+    padding: 30px;
+    /* 白色背景 */
+    background-color: #fff;
+    /* 圆角边框 */
+    border-radius: 10px;
+    /* 轻微阴影效果 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 结果标题样式 */
+.results-section h2 {
+    /* 底部外边距 */
+    margin-bottom: 20px;
+    /* 文字颜色 */
+    color: #333;
+    /* 字体大小 */
+    font-size: 1.8em;
+}
+
+/* 结果摘要样式 */
+#results-summary {
+    /* 底部外边距 */
+    margin-bottom: 30px;
+}
+
+/* 统计数据网格布局 */
+.summary-stats {
+    /* 使用网格布局 */
+    display: grid;
+    /* 自动适应列数，每列最小200px */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* 列间距 */
+    gap: 20px;
+}
+
+/* 单个统计项样式 */
+.stat-item {
+    /* 内边距 */
+    padding: 20px;
+    /* 浅灰色背景 */
+    background-color: #f9f9f9;
+    /* 圆角边框 */
+    border-radius: 8px;
+    /* 文本居中 */
+    text-align: center;
+    /* 边框 */
+    border: 1px solid #e0e0e0;
+}
+
+/* 统计标签样式 */
+.stat-label {
+    /* 块级元素 */
+    display: block;
+    /* 文字颜色 */
+    color: #666;
+    /* 字体大小 */
+    font-size: 14px;
+    /* 底部外边距 */
+    margin-bottom: 5px;
+}
+
+/* 统计数值样式 */
+.stat-value {
+    /* 块级元素 */
+    display: block;
+    /* 主题色文字 */
+    color: #00a1d6;
+    /* 字体大小 */
+    font-size: 24px;
+    /* 粗体 */
+    font-weight: bold;
+}
+
+/* 结果表格样式 */
+.results-table-container {
+    /* 横向滚动 */
+    overflow-x: auto;
+    /* 添加边框和圆角 */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    /* 隐藏内部表格的边框 */
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 表格样式 */
+#results-table {
+    /* 宽度占满容器 */
+    width: 100%;
+    /* 边框合并 */
+    border-collapse: collapse;
+    /* 字体大小 */
+    font-size: 14px;
+    background-color: #fff;
+}
+
+/* 表头和单元格通用样式 */
+#results-table th,
+#results-table td {
+    /* 内边距 */
+    padding: 14px 16px;
+    /* 文本左对齐 */
+    text-align: left;
+    /* 底部边框 */
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* 表头样式 */
+#results-table th {
+    /* 主题色背景 */
+    background-color: #f0f0f0;
+    /* 文字颜色 */
+    color: #141212;
+    /* 粗体 */
+    font-weight: bold;
+    /* 粘性定位，滚动时固定在顶部 */
+    position: sticky;
+    top: 0;
+    /* 层级，确保在表格内容上方 */
+    z-index: 10;
+    /* 文字转换为大写，增强视觉效果 */
+    text-transform: uppercase;
+    /* 字体大小 */
+    font-size: 15px;
+    /* 字母间距 */
+    letter-spacing: 0.5px;
+}
+
+/* 序号列特殊样式 */
+#results-table th:first-child,
+#results-table td:first-child {
+    /* 文本居中 */
+    text-align: center;
+    /* 固定宽度 */
+    width: 60px;
+    /* 粗体 */
+    font-weight: bold;
+}
+
+/* 视频标题列样式 */
+#results-table td:nth-child(2) {
+    /* 限制宽度 */
+    max-width: 300px;
+    /* 文字溢出显示省略号 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 表格行样式 */
+#results-table tr {
+    /* 行高 */
+    line-height: 1.8;
+    /* 过渡效果 */
+    transition: all 0.2s ease;
+}
+
+/* 表格行悬停效果 */
+#results-table tr:hover {
+    /* 鼠标悬停时的背景色 */
+    background-color: #f8fbfe;
+    /* 添加阴影 */
+    box-shadow: 0 2px 8px rgba(0, 161, 214, 0.1);
+    /* 轻微上浮效果 */
+    transform: translateY(-1px);
+}
+
+/* 表格中的链接样式 */
+#results-table a {
+    /* 主题色文字 */
+    color: #00a1d6;
+    /* 移除下划线 */
+    text-decoration: none;
+    /* 颜色过渡效果 */
+    transition: color 0.3s, text-decoration 0.3s;
+    /* 显示全部内容 */
+    display: block;
+}
+
+/* 链接悬停效果 */
+#results-table a:hover {
+    /* 悬停时颜色加深 */
+    color: #0086b3;
+    /* 添加下划线 */
+    text-decoration: underline;
+}
+
+/* 链接悬停效果 */
+#results-table a:hover {
+    /* 悬停时颜色加深 */
+    color: #0086b3;
+    /* 添加下划线 */
+    text-decoration: underline;
+}
+
+/* 响应式设计 */
+/* 平板设备样式（最大宽度768px） */
+@media (max-width: 768px) {
+    /* 容器内边距减小 */
+    .container {
+        padding: 10px;
+    }
+    
+    /* 标题字体减小 */
+    header h1 {
+        font-size: 2em;
+    }
+    
+    /* 搜索表单垂直排列 */
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    /* 关键词输入框自适应宽度 */
+    .search-form input[type="text"] {
+        min-width: auto;
+    }
+    
+    /* 页数输入框占满宽度 */
+    .search-form input[type="number"] {
+        width: 100%;
+    }
+    
+    /* 统计网格每列最小宽度减小 */
+    .summary-stats {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    /* 图表高度减小 */
+    .chart-container {
+        height: 300px;
+    }
+    
+    /* 表格字体减小 */
+    #results-table {
+        font-size: 12px;
+    }
+    
+    /* 表格内边距减小 */
+    #results-table th,
+    #results-table td {
+        padding: 8px 10px;
+    }
+}
+
+/* 移动设备样式（最大宽度480px） */
+@media (max-width: 480px) {
+    /* 标题字体进一步减小 */
+    header h1 {
+        font-size: 1.5em;
+    }
+    
+    /* 各区域内边距减小 */
+    .search-section,
+    .chart-section,
+    .results-section {
+        padding: 20px;
+    }
+    
+    /* 统计网格单列显示 */
+    .summary-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 分页控件样式 */
+.pagination {
+    /* 使用弹性布局 */
+    display: flex;
+    /* 水平居中对齐 */
+    justify-content: center;
+    /* 垂直居中对齐 */
+    align-items: center;
+    /* 内边距 */
+    padding: 20px 0;
+    /* 底部外边距 */
+    margin-top: 20px;
+}
+
+/* 分页按钮样式 */
+.pagination button {
+    /* 内边距 */
+    padding: 10px 20px;
+    /* 背景色 */
+    background-color: #00a1d6;
+    /* 文字颜色 */
+    color: #fff;
+    /* 移除边框 */
+    border: none;
+    /* 圆角边框 */
+    border-radius: 5px;
+    /* 字体大小 */
+    font-size: 14px;
+    /* 鼠标指针变为手型 */
+    cursor: pointer;
+    /* 过渡效果 */
+    transition: background-color 0.3s;
+    /* 外边距 */
+    margin: 0 5px;
+}
+
+/* 分页按钮悬停效果 */
+.pagination button:hover {
+    /* 背景色加深 */
+    background-color: #0086b3;
+}
+
+/* 分页按钮禁用样式 */
+.pagination button:disabled {
+    /* 灰色背景 */
+    background-color: #cccccc;
+    /* 鼠标指针变为禁止符号 */
+    cursor: not-allowed;
+}
+
+/* 页码信息样式 */
+.pagination #page-info {
+    /* 内边距 */
+    padding: 0 15px;
+    /* 文字颜色 */
+    color: #666;
+    /* 字体大小 */
+    font-size: 14px;
+}
+
+/* 爬取进度样式 */
+.crawl-progress {
+    /* 文本居中 */
+    text-align: center;
+    /* 字体大小 */
+    font-size: 16px;
+    /* 字体颜色 */
+    color: #00a1d6;
+    /* 粗体 */
+    font-weight: bold;
+    /* 上外边距 */
+    margin-top: 10px;
+}
