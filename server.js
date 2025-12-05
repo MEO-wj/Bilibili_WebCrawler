@@ -50,7 +50,7 @@ app.use(express.json());
 app.post('/api/crawl', async (req, res) => {
   try {
     // 从请求体中获取关键词、爬取页数和延迟参数
-    const { keyword, pages = 5, delay = 0.5 } = req.body;
+    const { keyword, pages = 1, delay = 0.5 } = req.body;
     
     // 参数验证
     if (!keyword || typeof keyword !== 'string' || keyword.trim() === '') {
@@ -60,10 +60,10 @@ app.post('/api/crawl', async (req, res) => {
       });
     }
     
-    if (typeof pages !== 'number' || pages < 1 || pages > 20) {
+    if (typeof pages !== 'number' || pages < 1 || pages > 100) {
       return res.status(400).json({ 
         status: "error", 
-        message: '页数必须为1-20之间的整数' 
+        message: '页数必须为1-100之间的整数' 
       });
     }
     
