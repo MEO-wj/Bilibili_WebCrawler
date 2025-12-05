@@ -29,7 +29,7 @@ UPINFO_URL = 'https://api.bilibili.com/x/space/acc/info'
 UP_FANS_URL = 'https://api.bilibili.com/x/relation/stat'
 
 
-def crawl_bilibili_videos(keyword, pages=1, delay=0.5):
+def crawl_bilibili_videos(keyword, pages=1, delay=0.2):
     """
     爬取B站视频数据
     
@@ -85,7 +85,7 @@ def process_video(video, delay):
         return None
 
 
-def crawl_bilibili_videos_with_progress(keyword, pages=1, delay=0.5, progress_callback=None):
+def crawl_bilibili_videos_with_progress(keyword, pages=1, delay=0.2, progress_callback=None):
     """
     爬取B站视频数据（支持进度回调）
     
